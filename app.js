@@ -12,7 +12,8 @@ app.set('view engine' , 'ejs');
 app.set('views' ,viewpath);
 
 app.use(bodyParser.urlencoded({ extended: true}));
-//this link is from mongo server
+//this link is from mongo server 
+//this is used to host the mongodb cloud aws
 mongoose.connect('mongodb+srv://Niroj:Thapa123@cluster0.fvkah.mongodb.net/route');
 
 const listSchema = {
@@ -152,6 +153,11 @@ app.get('/:hamrotitle',function(req, res){
    
 })
 
-app.listen(2350, function(){
+//for heroku details
+let port=process.env.PORT;
+if(port==null||port==''){
+    port=2350;
+}
+app.listen(port, function(){
  console.log('listening on port 2350');
 })
