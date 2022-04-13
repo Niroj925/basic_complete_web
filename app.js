@@ -159,5 +159,5 @@ if(port==null||port==''){
     port=2350;
 }
 app.listen(port, function(){
- console.log('listening on port 2350');
+ console.log('server has started successfully');
 })
